@@ -82,12 +82,16 @@ document.addEventListener('DOMContentLoaded', function()
         if (validateForm(formData))
         {
             // Simular envio do formulário
-            alert('Formulário enviado com sucesso!');
-            form.reset();
+            generateTicket(formData);
         }
         else
         {
-            console.log('Formulário inválido. Corrija os erros e tente novamente.');
+            const firstErrorField = document.querySelector('.error-message:not(:empty)');
+            if (firstErrorField)
+            {
+                const fieldId = firstErrorField.id.replace('-error', '');
+                document.getElementById(fieldId).focus();
+            }
         }
     });
 
