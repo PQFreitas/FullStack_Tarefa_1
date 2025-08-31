@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', function()
 {
     const form = document.getElementById('ticketForm');
 
+    // Elementos para mensagens de erro
+    const errorElements =
+    {
+        name: document.getElementById('name-error'),
+        email: document.getElementById('email-error'),
+        type: document.getElementById('type-error'),
+        avatar: document.getElementById('avatar-error')
+    };
+
     // Função para validar o formulário
     function validateForm(formData)
     {
@@ -55,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function()
         return emailRegex.test(email);
     }
 
+    // Validar o formulário
     form.addEventListener('submit', function (event)
     {
         event.preventDefault();
@@ -73,16 +83,14 @@ document.addEventListener('DOMContentLoaded', function()
         }
     });
 
-    const requiredFields = form.querySelectorAll('[required]');
-    requiredFields.forEach(field =>
-    {
-        field.setAttribute('aria-required', 'true');
-            
-        // Adicionar dica visual para campos obrigatórios
-        const label = form.querySelector(`label[for="${field.id}"]`);
-        if (label && !label.querySelector('.required-asterisk')) {
-            label.innerHTML += '<span class="required-asterisk" aria-hidden="true"> *</span>';
+    // Validação de email em tempo real
+    form.addEventListener('input', function(event) {
+        const target = event.target;
+        const formData = new FormData(form);
+        
+        // Validar campo de e-mail em tempo real
+        if (target.id === 'email' && target.value && !isValidEmail(target.value)) {
+            errorElements.email.textContent = 'Por favor, informe um e-mail válido.';
         }
     });
-
 });

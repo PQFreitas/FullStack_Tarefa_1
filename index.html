@@ -20,11 +20,13 @@
                 <div>
                     <label for="name">*Nome Completo:</label>
                     <input type="text" name="name" id="name">
+                    <span id="name-error"></span>
                 </div>
 
                 <div>
                     <label for="email">*E-mail:</label>
                     <input type="email" name="email" id="email">
+                    <span id="email-error"></span>
                 </div>
 
                 <div>
@@ -36,14 +38,16 @@
                         <option value="vip">VIP</option>
                         <option value="palestrante">Palestrante</option>
                     </select>
+                    <span id="type-error"></span>
                 </div>
 
                 <div>
                     <label for="">Avatar:</label>
                     <input type="file" name="" id="" accept="image/jpeg, image/png">
+                    <span id="avatar-error"></span>
                 </div>
 
-                <button type="submit" onclick="isValidEmail()">Gerrar Ticket</button>
+                <button type="submit">Gerar Ticket</button>
 
                 </form>
             </div>
