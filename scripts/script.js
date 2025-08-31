@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', function()
         avatar: document.getElementById('avatar-error')
     };
 
+    // Limpar mensagens de erro
+    function clearErrors() {
+        for (const key in errorElements)
+        {
+            errorElements[key].textContent = '';
+        }
+    }
+
     // Função para validar o formulário
     function validateForm(formData)
     {
@@ -20,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function()
         if (!formData.get('name').trim())
         {
             isValid = false;
-            alert('Por favor, insira seu nome.');
+            errorElements.name.textContent = 'Por favor, informe seu nome.';
         }
 
         // Validar e-mail
@@ -28,19 +36,19 @@ document.addEventListener('DOMContentLoaded', function()
         if (!email)
         {
             isValid = false;
-            alert('Por favor, insira seu e-mail.');
+            errorElements.email.textContent = 'Por favor, insira seu e-mail.';
         }
         else if (!isValidEmail(email))
         {
             isValid = false;
-            alert('Por favor, insira um e-mail válido.');
+            errorElements.email.textContent = 'Por favor, insira um e-mail válido.';
         }
 
         // Validar tipo de ingresso
         if (!formData.get('type'))
         {
             isValid = false;
-            alert('Por favor, selecione o tipo de ingresso.');
+            errorElements.type.textContent = 'Por favor, selecione o tipo de ingresso.';
         }
 
         // Validar arquivo de avatar
