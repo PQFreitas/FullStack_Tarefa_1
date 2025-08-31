@@ -23,23 +23,23 @@ function generateTicket(formData)
     }
 
     const ticketHTML = `
-        <div>
-            <div>
+        <div class="ticket">
+            <div class="ticket-header">
                 <h3>Conferência ABC</h3>
             </div>
-            <div>
+            <div class="ticket-body">
                 ${avatarUrl ? `<img src="${avatarUrl}" alt="Avatar de ${name}" class="ticket-avatar">` : ''}
-                <div>
+                <div class="ticket-info">
                     <strong>Nome:</strong> <span>${name}</span>
                 </div>
-                <div>
+                <div class="ticket-info">
                     <strong>E-mail:</strong> <span>${email}</span>
                 </div>
-                <div>
+                <div class="ticket-info">
                     <strong>Tipo:</strong> <span>${typeNames[type]}</span>
                 </div>
             </div>
-            <div>
+            <div class="ticket-footer">
                 <p>Apresente este ingresso na entrada do evento</p>
                 <p>ID: ${Math.random().toString(36).substring(2, 9).toUpperCase()}</p>
             </div>        </div>

@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket Generator</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div> <!-- Container principal -->
-        <header> <!-- Título da Página -->
+    <div class="container"> <!-- Container principal -->
+        <header class="header"> <!-- Título da Página -->
             <h1>Ticket ABC</h1>
             <p>Gere seu ingresso personalizado para a conferência ABC!</p>
         </header>
 
-        <main> <!-- Conteúdo principal -->
-            <div> <!-- Área do formulário -->
+        <main class="main-container"> <!-- Conteúdo principal -->
+            <div class="form-section"> <!-- Área do formulário -->
                 <h2>Preecha os dados solicitados:</h2>
 
-                <form id="ticketForm" novalidate>
-                <div>
+                <form id="ticketForm" class="ticket-form" novalidate>
+                <div class="form-group">
                     <label for="name">*Nome Completo:</label>
                     <input type="text" name="name" id="name">
-                    <span id="name-error"></span>
+                    <span id="name-error" class="error-message"></span>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="email">*E-mail:</label>
                     <input type="email" name="email" id="email">
                     <span id="email-error"></span>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="type">*Tipo de Ingresso:</label>
                     <select name="type" id="type" required>
                         <option value="">Selecione uma opção</option>
@@ -38,23 +39,23 @@
                         <option value="vip">VIP</option>
                         <option value="palestrante">Palestrante</option>
                     </select>
-                    <span id="type-error"></span>
+                    <span id="type-error" class="error-message"></span>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="">Avatar:</label>
                     <input type="file" name="avatar" id="avatar" accept="image/jpeg, image/png">
-                    <span id="avatar-error"></span>
+                    <span id="avatar-error" class="error-message"></span>
                 </div>
 
-                <button type="submit">Gerar Ticket</button>
+                <button type="submit" class="submit-btn">Gerar Ticket</button>
 
                 </form>
             </div>
 
-            <div> <!-- Área do Ticket -->
+            <div class="ticket-section"> <!-- Área do Ticket -->
                 <h2>Seu Ingresso:</h2>
-                <div id="ticketPreview">
+                <div id="ticketPreview" class="ticket-preview">
                     <p>Preencha o formulário para visualizar o ticket</p>
                 </div>
             </div>
