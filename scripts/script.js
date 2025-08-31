@@ -91,11 +91,14 @@ document.addEventListener('DOMContentLoaded', function()
         }
     });
 
-    // Validação de email em tempo real
+    // Validação em tempo real
     form.addEventListener('input', function(event) {
         const target = event.target;
         const formData = new FormData(form);
         
+        // Limpar mensagens de erro
+        clearErrors();
+
         // Validar campo de e-mail em tempo real
         if (target.id === 'email' && target.value && !isValidEmail(target.value)) {
             errorElements.email.textContent = 'Por favor, informe um e-mail válido.';
