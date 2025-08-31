@@ -8,7 +8,7 @@
 <body>
     <div> <!-- Container principal -->
         <header> <!-- Título da Página -->
-            <h1>Evento ABC</h1>
+            <h1>Ticket ABC</h1>
             <p>Gere seu ingresso personalizado para a conferência ABC!</p>
         </header>
 
@@ -16,33 +16,40 @@
             <div> <!-- Área do formulário -->
                 <h2>Preecha os dados solicitados:</h2>
 
+                <form id="ticketForm" novalidate>
                 <div>
-                    <label for="">Nome Completo:</label>
-                    <input type="text" name="" id="">
+                    <label for="name">*Nome Completo:</label>
+                    <input type="text" name="name" id="name">
+                    <span id="name-error"></span>
                 </div>
 
                 <div>
-                    <label for="">E-mail:</label>
-                    <input type="email" name="" id="">
+                    <label for="email">*E-mail:</label>
+                    <input type="email" name="email" id="email">
+                    <span id="email-error"></span>
                 </div>
 
                 <div>
-                    <label for="">Tipo de Ingresso:</label>
-                    <select name="" id="">
-                        <option value="">Estudante</option>
-                        <option value="">Profissional</option>
-                        <option value="">VIP</option>
-                        <option value="">Palestrante</option>
+                    <label for="type">*Tipo de Ingresso:</label>
+                    <select name="type" id="type" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="estudante">Estudante</option>
+                        <option value="profissional">Profissional</option>
+                        <option value="vip">VIP</option>
+                        <option value="palestrante">Palestrante</option>
                     </select>
+                    <span id="type-error"></span>
                 </div>
 
                 <div>
                     <label for="">Avatar:</label>
                     <input type="file" name="" id="" accept="image/jpeg, image/png">
+                    <span id="avatar-error"></span>
                 </div>
 
-                <button>Gerrar Ticket</button>
+                <button type="submit">Gerar Ticket</button>
 
+                </form>
             </div>
 
             <div> <!-- Área do Ticket -->
@@ -50,5 +57,7 @@
             </div>
         </main>
     </div>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
